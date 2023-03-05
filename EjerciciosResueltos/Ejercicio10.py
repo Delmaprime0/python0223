@@ -15,3 +15,4 @@ diccionario["max nota"] = float(input("Digite la nota máxima del diccionario: "
 diccionario["alumnos"] = input("Digite una lista de alumnos separados por comas: ").split(",")
 
 print("El diccionario es:", diccionario)
+#
