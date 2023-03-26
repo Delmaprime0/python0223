@@ -1,7 +1,7 @@
 ## Santos Eduardo Martinez Ochoa
 
 from Ejercicio2 import Sorteo
-from Ejercicio3 import obtener_tipo_cambio
+from Ejercicio3 import obtener
 from Ejercicio4 import Registro
 from Ejercicio5 import ValidarNumCel
 
@@ -12,20 +12,19 @@ print(sorteo.aleatorio())
 
 ##############################################
 
-data = obtener_tipo_cambio()
+data = obtener()
 if data:
     print(data)
 else:
-    print("Error al obtener los datos del tipo de cambio.")
+    print("Error")
 
 ###############################################
 
 registro = Registro("mi_registro.txt")
+texto = input("Digite el valor del txt: ")
+registro.guardar(texto)
 
-registro.guardar_input("Hola, mundo!")
-registro.guardar_input("Esta es una prueba.")
-
-registro.mostrar_registro()
+registro.mostrar()
 ###########################################
 
 numero = input("Digite el valor del Numero: ")

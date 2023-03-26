@@ -11,11 +11,11 @@ class Registro:
         with open(self.filename, "w") as f:
             f.write("")
 
-    def guardar_input(self, input_data):
+    def guardar(self, input_data):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with open(self.filename, "a") as f:
             f.write(f"{timestamp}-{self.filename}-{input_data}\n")
 
-    def mostrar_registro(self):
+    def mostrar(self):
         with open(self.filename, "r") as f:
             print(f.read())
