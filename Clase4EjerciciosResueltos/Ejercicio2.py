@@ -1,6 +1,6 @@
 from main import Sorteo
 
-sorteo = Sorteo(10, 5)
+sorteo = Sorteo(15, 1)
 sorteo.sortear()
 sorteo.mostrar()
-print(sorteo.escoger_aleatorio())
+print(sorteo.aleatorio())

@@ -3,49 +3,52 @@
 import random
 
 class Sorteo:
-    def __init__(self, max_valor, cant_elementos):
-        self.lista = []
-        self.max_valor = max_valor
-        self.cant_elementos = cant_elementos
+    def __init__(self, Max_Valor, CantElements):
+        self.list = []
+        self.Max_Valor = Max_Valor
+        self.CantElements = CantElements
     
     def sortear(self):
-        for i in range(self.cant_elementos):
-            self.lista.append(random.randint(1, self.max_valor))
+        for i in range(self.CantElements):
+            self.list.append(random.randint(1, self.Max_Valor))
     
     def mostrar(self):
-        print(self.lista)
+        print(self.list)
     
-    def escoger_aleatorio(self):
-        return random.choice(self.lista)
+    def aleatorio(self):
+        return random.choice(self.list)
 
 ##############################################
-import requests
 
-def get_exchange_rate():
-    url = 'https://api.apis.net.pe/v1/tipo-cambio-sunat'
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        return data
-    else:
-        print(f'Error al obtener los datos de la API. Código de error: {response.status_code}')
 
 ## Ejercicio4
 from datetime import datetime
 
 class Registro:
-    def __init__(self, archivo):
-        self.archivo = archivo
-        with open(self.archivo, "w") as f:
+    def __init__(self, arch):
+        self.arch = arch
+        with open(self.arch, "w") as f:
             f.write("")
 
-    def guardar_input(self, entrada):
-        fecha_actual = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        nombre_archivo = self.archivo.split('.')[0]
-        with open(f"{nombre_archivo}_{fecha_actual}.txt", "a") as f:
-            f.write(fecha_actual + "-" + nombre_archivo + "-" + entrada + "\n")
+    def guardar(self, entrada):
+        F_actual = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        Name_Arch = self.arch.split('.')[0]
+        with open(f"{Name_Arch}_{F_actual}.txt", "a") as f:
+            f.write(F_actual + "-" + Name_Arch + "-" + entrada + "\n")
 
-    def mostrar_registro(self):
-        with open(self.archivo, "r") as f:
+    def mostrar(self):
+        with open(self.arch, "r") as f:
             contenido = f.read()
             print(contenido)
+###########################################
+import re
+
+def ValidarNumCel(num):
+    patron = r'^9\d{8}$'
+
+    if not re.match(patron, num):
+        return False
+    if len(num) != 9:
+        return False
+
+    return True

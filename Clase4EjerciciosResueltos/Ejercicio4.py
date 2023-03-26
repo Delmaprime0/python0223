@@ -1,12 +1,14 @@
 
 from main import Registro
 
-registro = Registro("mi_registro.txt")
+registro = Registro("Registro.txt")
 
-entrada_1 = "Helloda"
-entrada_2 = "wenas"
+entrada1 = "Helloda"
+entrada2 = "wenas"
+entrada3 = "Practica"
 
-registro.guardar_input(entrada_1)
-registro.guardar_input(entrada_2)
+registro.guardar(entrada1)
+registro.guardar(entrada2)
+registro.guardar(entrada3)
 
-registro.mostrar_registro()
+registro.mostrar()
