@@ -1,54 +1,36 @@
-## Ejercicio2
+## Santos Eduardo Martinez Ochoa
 
-import random
+from Ejercicio2 import Sorteo
+from Ejercicio3 import obtener_tipo_cambio
+from Ejercicio4 import Registro
+from Ejercicio5 import ValidarNumCel
 
-class Sorteo:
-    def __init__(self, Max_Valor, CantElements):
-        self.list = []
-        self.Max_Valor = Max_Valor
-        self.CantElements = CantElements
-    
-    def sortear(self):
-        for i in range(self.CantElements):
-            self.list.append(random.randint(1, self.Max_Valor))
-    
-    def mostrar(self):
-        print(self.list)
-    
-    def aleatorio(self):
-        return random.choice(self.list)
+sorteo = Sorteo(100, 10)
+sorteo.sortear()
+sorteo.mostrar()
+print(sorteo.aleatorio())
 
 ##############################################
 
+data = obtener_tipo_cambio()
+if data:
+    print(data)
+else:
+    print("Error al obtener los datos del tipo de cambio.")
 
-## Ejercicio4
-from datetime import datetime
+###############################################
 
-class Registro:
-    def __init__(self, arch):
-        self.arch = arch
-        with open(self.arch, "w") as f:
-            f.write("")
+registro = Registro("mi_registro.txt")
 
-    def guardar(self, entrada):
-        F_actual = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        Name_Arch = self.arch.split('.')[0]
-        with open(f"{Name_Arch}_{F_actual}.txt", "a") as f:
-            f.write(F_actual + "-" + Name_Arch + "-" + entrada + "\n")
+registro.guardar_input("Hola, mundo!")
+registro.guardar_input("Esta es una prueba.")
 
-    def mostrar(self):
-        with open(self.arch, "r") as f:
-            contenido = f.read()
-            print(contenido)
+registro.mostrar_registro()
 ###########################################
-import re
 
-def ValidarNumCel(num):
-    patron = r'^9\d{8}$'
+numero = input("Digite el valor del Numero: ")
 
-    if not re.match(patron, num):
-        return False
-    if len(num) != 9:
-        return False
-
-    return True
+if ValidarNumCel(numero):
+    print('El número telefónico de celular es válido')
+else:
+    print('El número telefónico de celular no es válido')

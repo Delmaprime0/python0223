@@ -1,14 +1,21 @@
+## 4.	Realizar una clase Registro que inicialice creando un archivo, un método que guarde el input(*)
+## en un archivo de texto y uno que muestre todo el archivo.
 
-from main import Registro
+## Santos Eduardo Martinez Ochoa
 
-registro = Registro("Registro.txt")
+import datetime
 
-entrada1 = "Helloda"
-entrada2 = "wenas"
-entrada3 = "Practica"
+class Registro:
+    def __init__(self, filename):
+        self.filename = filename
+        with open(self.filename, "w") as f:
+            f.write("")
 
-registro.guardar(entrada1)
-registro.guardar(entrada2)
-registro.guardar(entrada3)
+    def guardar_input(self, input_data):
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open(self.filename, "a") as f:
+            f.write(f"{timestamp}-{self.filename}-{input_data}\n")
 
-registro.mostrar()
+    def mostrar_registro(self):
+        with open(self.filename, "r") as f:
+            print(f.read())
